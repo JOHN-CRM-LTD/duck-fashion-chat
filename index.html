@@ -6,63 +6,245 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.johncrm.com; connect-src https://app.johncrm.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; base-uri 'none'; form-action 'none'">
-    <meta name="theme-color" content="#faf7f5">
-    <meta name="description" content="Duck Fashion's customer chat test site. Try the live John CRM reservation workflow.">
-    <title>Duck Fashion · Live chat test</title>
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="DUCK FASHION — Autumn/Winter 2026. The Urban Pond collection, made in Hong Kong. Customer chat test workspace.">
+    <title>DUCK FASHION — Autumn/Winter 2026</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
     <script src="./site.js" defer></script>
   </head>
   <body>
-    <main>
-      <header>
-        <a class="brand" href="./" aria-label="Duck Fashion test home">DUCK FASHION<span>Customer chat testing</span></a>
-        <span class="badge">Live workspace</span>
-      </header>
-      <p class="eyebrow">Try it with John</p>
-      <h1>Your next reservation<br>starts with a chat.</h1>
-      <p class="intro">Open the chat button in the bottom-right corner to test Duck Fashion’s live reservation workflow.</p>
-      <p class="live-note">Sending a message uses the live CRM and may send a WhatsApp request to the test manager.</p>
-
-      <section class="card" aria-labelledby="customer-heading">
-        <div class="step">01 <span>Customer</span></div>
-        <h2 id="customer-heading">Ask John to hold an item.</h2>
-        <blockquote id="test-request">Can I reserve BBBA001L26B35FRE? I’m near Causeway Bay.</blockquote>
-        <div class="copy-row">
-          <button id="copy-request" type="button">Copy test request <span aria-hidden="true">↗</span></button>
-          <span id="copy-status" role="status" aria-live="polite"></span>
-        </div>
-        <p>Choose <strong>Jumbo Sogo · SE_TEST</strong>, one unit and a future pickup time. Test hours are <strong>Monday–Friday, 09:00–17:30 Hong Kong time</strong>. Confirm the details when John asks.</p>
-        <p class="muted">The starting snapshot contains one unit at Jumbo Sogo. Earlier test reservations or sales may reduce availability.</p>
-      </section>
-
-      <section class="card" aria-labelledby="manager-heading">
-        <div class="step">02 <span>Manager</span></div>
-        <h2 id="manager-heading">Reply on WhatsApp.</h2>
-        <p>The configured manager receives John’s request. Use its actual reservation reference in each reply.</p>
-        <dl>
-          <div><dt><code>ACCEPT R-XXXXXXXX</code></dt><dd>Confirm after physically setting the item aside.</dd></div>
-          <div><dt><code>NOT SOLD R-XXXXXXXX</code></dt><dd>Release the reservation and restore availability.</dd></div>
-          <div><dt><code>SOLD R-XXXXXXXX</code></dt><dd>Complete the sale in the test reservation ledger.</dd></div>
-        </dl>
-      </section>
-
-      <details>
-        <summary>Before you test</summary>
-        <p>This is a test site using the inventory snapshot from 16 September 2026. It is not a live shop-floor stock count or a production storefront.</p>
-        <p>The inventory computer, Docker, stock bridge and tunnel must be running. This website stays online independently, but John needs that connection to check stock.</p>
-        <p>Reservations are recorded in John CRM. The original POS database is read-only. The company sender and manager must be different WhatsApp accounts.</p>
-        <p>If no chat button appears, reload the page and check whether your browser is blocking scripts from app.johncrm.com.</p>
-      </details>
-      <noscript><p class="live-note">Enable JavaScript to load the live chat widget.</p></noscript>
-      <footer>
-        <span>Duck Fashion · Test workspace</span>
-        <nav aria-label="Workspace links">
-          <a href="https://app.johncrm.com/g/automations" target="_blank" rel="noopener noreferrer">Open John CRM ↗</a>
-          <a href="https://github.com/JOHN-CRM-LTD/duck-fashion-chat" target="_blank" rel="noopener noreferrer">Site repository ↗</a>
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a class="brand" href="#home">DUCK<span class="brand-dot" aria-hidden="true"></span>FASHION</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="nav-link" href="#home" data-view-link="home">Home</a>
+          <a class="nav-link" href="#test" data-view-link="test">Test</a>
         </nav>
-      </footer>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================================================== HOME -->
+      <section class="view view--active" id="view-home" data-view="home" aria-label="Home">
+
+        <div class="hero">
+          <div class="hero-text">
+            <p class="eyebrow hero-item" style="--i:0">Autumn / Winter 2026</p>
+            <h1 class="hero-title">
+              <span class="hero-line hero-item" style="--i:1">The Urban</span>
+              <span class="hero-line hero-item serif" style="--i:2">Pond</span>
+            </h1>
+            <p class="hero-sub hero-item" style="--i:3">Six looks from the house of Duck — cut in Hong Kong, worn everywhere.</p>
+            <div class="hero-actions hero-item" style="--i:4">
+              <a class="btn btn-solid" href="#collection" data-scroll>Explore the collection</a>
+              <a class="btn btn-ghost" href="#test" data-view-link="test">Chat test</a>
+            </div>
+          </div>
+          <figure class="hero-media">
+            <img src="./images/look-01.jpg" alt="Model wearing the burgundy Mallard hoodie with the Duck Fashion duck logo." fetchpriority="high" decoding="async">
+            <figcaption class="hero-caption">N° 01 — The Mallard Hoodie</figcaption>
+          </figure>
+        </div>
+
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <div class="marquee-set">
+              <span>Autumn / Winter 2026</span><i></i><span>World of Duck</span><i></i><span>Hong Kong</span><i></i><span>The Urban Pond</span><i></i><span>Six Looks</span><i></i>
+            </div>
+            <div class="marquee-set">
+              <span>Autumn / Winter 2026</span><i></i><span>World of Duck</span><i></i><span>Hong Kong</span><i></i><span>The Urban Pond</span><i></i><span>Six Looks</span><i></i>
+            </div>
+          </div>
+        </div>
+
+        <section class="statement">
+          <figure class="statement-media reveal-img" data-parallax="0.05">
+            <img src="./images/look-03.jpg" alt="Model wearing the ecru L'ŒUF crewneck sweatshirt." loading="lazy" decoding="async">
+          </figure>
+          <div class="statement-text">
+            <p class="eyebrow reveal">The House</p>
+            <blockquote class="statement-quote reveal">“Calm on the surface. Paddling like mad underneath.”</blockquote>
+            <p class="statement-attr reveal">— Duck proverb, Causeway Bay</p>
+          </div>
+          <figure class="statement-media statement-media--low reveal-img" data-parallax="0.05">
+            <img src="./images/look-06.jpg" alt="Model wearing the sand Cygnet polo with duck embroidery." loading="lazy" decoding="async">
+          </figure>
+        </section>
+
+        <section class="collection" id="collection">
+          <header class="section-head reveal">
+            <h2 class="section-title">The Collection</h2>
+            <span class="section-count">N° 001 — 006</span>
+          </header>
+          <div class="grid">
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-01.jpg" alt="The Mallard Hoodie in burgundy." loading="lazy" decoding="async">
+                <span class="product-tag">N° 01</span>
+                <button class="product-add" type="button" data-add="N° 01 — The Mallard Hoodie">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>The Mallard Hoodie</h3>
+                  <span class="price">HK$1,290</span>
+                </div>
+                <p class="product-color">Burgundy</p>
+              </div>
+            </article>
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-04.jpg" alt="The Duck Standard sweatshirt in black." loading="lazy" decoding="async">
+                <span class="product-tag">N° 02</span>
+                <button class="product-add" type="button" data-add="N° 02 — The Duck Standard">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>The Duck Standard</h3>
+                  <span class="price">HK$1,290</span>
+                </div>
+                <p class="product-color">Black</p>
+              </div>
+            </article>
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-02.jpg" alt="The Stripe Shirt in black and ivory." loading="lazy" decoding="async">
+                <span class="product-tag">N° 03</span>
+                <button class="product-add" type="button" data-add="N° 03 — The Stripe Shirt">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>The Stripe Shirt</h3>
+                  <span class="price">HK$990</span>
+                </div>
+                <p class="product-color">Black / Ivory</p>
+              </div>
+            </article>
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-05.jpg" alt="The Pond Shirt with all-over duck print." loading="lazy" decoding="async">
+                <span class="product-tag">N° 04</span>
+                <button class="product-add" type="button" data-add="N° 04 — The Pond Shirt">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>The Pond Shirt</h3>
+                  <span class="price">HK$890</span>
+                </div>
+                <p class="product-color">Duck Print</p>
+              </div>
+            </article>
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-03.jpg" alt="The L'ŒUF crewneck sweatshirt in ecru." loading="lazy" decoding="async">
+                <span class="product-tag">N° 05</span>
+                <button class="product-add" type="button" data-add="N° 05 — L'ŒUF Crewneck">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>L'ŒUF Crewneck</h3>
+                  <span class="price">HK$1,090</span>
+                </div>
+                <p class="product-color">Ecru</p>
+              </div>
+            </article>
+            <article class="product reveal">
+              <figure class="product-media">
+                <img src="./images/look-06.jpg" alt="The Cygnet polo in sand." loading="lazy" decoding="async">
+                <span class="product-tag">N° 06</span>
+                <button class="product-add" type="button" data-add="N° 06 — The Cygnet Polo">Add to bag</button>
+              </figure>
+              <div class="product-info">
+                <div class="product-row">
+                  <h3>The Cygnet Polo</h3>
+                  <span class="price">HK$790</span>
+                </div>
+                <p class="product-color">Sand</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="story">
+          <div class="story-text">
+            <p class="eyebrow reveal">The House</p>
+            <h2 class="story-title reveal">Made in <em class="serif">Hong Kong.</em></h2>
+            <p class="story-copy reveal">Every piece is designed, cut and finished a few streets from the harbour. Small runs, no seasons wasted, nothing extra.</p>
+            <p class="story-meta reveal">Est. 2026 — Causeway Bay</p>
+          </div>
+          <figure class="story-media reveal-img" data-parallax="0.04">
+            <img src="./images/look-04.jpg" alt="Model wearing the black Duck Standard sweatshirt against a white studio background." loading="lazy" decoding="async">
+          </figure>
+        </section>
+
+        <section class="newsletter">
+          <p class="eyebrow reveal">Newsletter</p>
+          <h2 class="newsletter-title serif reveal">Join the flock.</h2>
+          <form class="newsletter-form reveal" id="newsletter-form">
+            <input type="email" name="email" required placeholder="Email address" aria-label="Email address" autocomplete="email">
+            <button class="btn btn-solid" type="submit">Subscribe</button>
+          </form>
+          <p class="newsletter-status" id="newsletter-status" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+
+      <!-- ================================================== TEST -->
+      <section class="view" id="view-test" data-view="test" aria-label="Customer chat test" hidden>
+        <div class="test-wrap">
+          <p class="test-label"><span class="live-dot" aria-hidden="true"></span>Live workspace — customer chat testing</p>
+          <h1 class="test-title">Your next reservation starts with a chat.</h1>
+          <p class="test-intro">Open the chat button in the bottom-right corner to test Duck Fashion’s live reservation workflow.</p>
+          <p class="test-note">Sending a message uses the live CRM and may send a WhatsApp request to the test manager.</p>
+
+          <section class="test-section" aria-labelledby="customer-heading">
+            <p class="test-step">01 <span>Customer</span></p>
+            <h2 id="customer-heading">Ask John to hold an item.</h2>
+            <blockquote class="test-request" id="test-request">Can I reserve BBBA001L26B35FRE? I’m near Causeway Bay.</blockquote>
+            <div class="copy-row">
+              <button id="copy-request" type="button">Copy test request <span aria-hidden="true">↗</span></button>
+              <span id="copy-status" role="status" aria-live="polite"></span>
+            </div>
+            <p>Choose <strong>Jumbo Sogo · SE_TEST</strong>, one unit and a future pickup time. Test hours are <strong>Monday–Friday, 09:00–17:30 Hong Kong time</strong>. Confirm the details when John asks.</p>
+            <p class="muted">The starting snapshot contains one unit at Jumbo Sogo. Earlier test reservations or sales may reduce availability.</p>
+          </section>
+
+          <section class="test-section" aria-labelledby="manager-heading">
+            <p class="test-step">02 <span>Manager</span></p>
+            <h2 id="manager-heading">Reply on WhatsApp.</h2>
+            <p>The configured manager receives John’s request. Use its actual reservation reference in each reply.</p>
+            <dl class="test-commands">
+              <div><dt><code>ACCEPT R-XXXXXXXX</code></dt><dd>Confirm after physically setting the item aside.</dd></div>
+              <div><dt><code>NOT SOLD R-XXXXXXXX</code></dt><dd>Release the reservation and restore availability.</dd></div>
+              <div><dt><code>SOLD R-XXXXXXXX</code></dt><dd>Complete the sale in the test reservation ledger.</dd></div>
+            </dl>
+          </section>
+
+          <details class="test-details">
+            <summary>Before you test</summary>
+            <p>This is a test site using the inventory snapshot from 16 September 2026. It is not a live shop-floor stock count or a production storefront.</p>
+            <p>The inventory computer, Docker, stock bridge and tunnel must be running. This website stays online independently, but John needs that connection to check stock.</p>
+            <p>Reservations are recorded in John CRM. The original POS database is read-only. The company sender and manager must be different WhatsApp accounts.</p>
+            <p>If no chat button appears, reload the page and check whether your browser is blocking scripts from app.johncrm.com.</p>
+          </details>
+          <noscript><p class="test-note">Enable JavaScript to load the live chat widget.</p></noscript>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <p class="footer-word" aria-hidden="true">DUCK FASHION<span class="footer-dot">.</span></p>
+      <div class="footer-row">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#home" data-view-link="home">Home</a>
+          <a href="#test" data-view-link="test">Test</a>
+          <a href="https://app.johncrm.com/g/automations" target="_blank" rel="noopener noreferrer">John CRM ↗</a>
+          <a href="https://github.com/JOHN-CRM-LTD/duck-fashion-chat" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </nav>
+        <p class="footer-copy">© 2026 Duck Fashion — Hong Kong. A very serious fashion house.</p>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <!-- Public widget identifier, intended for website embeds. It is not an API credential. -->
     <script src="https://app.johncrm.com/widget/chat.js" data-site-key="wc_461cb606455258099352b5df" async></script>
   </body>
