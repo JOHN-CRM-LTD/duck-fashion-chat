@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.johncrm.com; connect-src https://app.johncrm.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; object-src 'none'; base-uri 'none'; form-action 'none'">
+    <meta name="theme-color" content="#faf7f5">
+    <meta name="description" content="Duck Fashion's customer chat test site. Try the live John CRM reservation workflow.">
+    <title>Duck Fashion · Live chat test</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./site.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <a class="brand" href="./" aria-label="Duck Fashion test home">DUCK FASHION<span>Customer chat testing</span></a>
+        <span class="badge">Live workspace</span>
+      </header>
+      <p class="eyebrow">Try it with John</p>
+      <h1>Your next reservation<br>starts with a chat.</h1>
+      <p class="intro">Open the chat button in the bottom-right corner to test Duck Fashion’s live reservation workflow.</p>
+      <p class="live-note">Sending a message uses the live CRM and may send a WhatsApp request to the test manager.</p>
+
+      <section class="card" aria-labelledby="customer-heading">
+        <div class="step">01 <span>Customer</span></div>
+        <h2 id="customer-heading">Ask John to hold an item.</h2>
+        <blockquote id="test-request">Can I reserve BBBA001L26B35FRE? I’m near Causeway Bay.</blockquote>
+        <div class="copy-row">
+          <button id="copy-request" type="button">Copy test request <span aria-hidden="true">↗</span></button>
+          <span id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+        <p>Choose <strong>Jumbo Sogo · SE_TEST</strong>, one unit and a future pickup time. Test hours are <strong>Monday–Friday, 09:00–17:30 Hong Kong time</strong>. Confirm the details when John asks.</p>
+        <p class="muted">The starting snapshot contains one unit at Jumbo Sogo. Earlier test reservations or sales may reduce availability.</p>
+      </section>
+
+      <section class="card" aria-labelledby="manager-heading">
+        <div class="step">02 <span>Manager</span></div>
+        <h2 id="manager-heading">Reply on WhatsApp.</h2>
+        <p>The configured manager receives John’s request. Use its actual reservation reference in each reply.</p>
+        <dl>
+          <div><dt><code>ACCEPT R-XXXXXXXX</code></dt><dd>Confirm after physically setting the item aside.</dd></div>
+          <div><dt><code>NOT SOLD R-XXXXXXXX</code></dt><dd>Release the reservation and restore availability.</dd></div>
+          <div><dt><code>SOLD R-XXXXXXXX</code></dt><dd>Complete the sale in the test reservation ledger.</dd></div>
+        </dl>
+      </section>
+
+      <details>
+        <summary>Before you test</summary>
+        <p>This is a test site using the inventory snapshot from 16 September 2026. It is not a live shop-floor stock count or a production storefront.</p>
+        <p>The inventory computer, Docker, stock bridge and tunnel must be running. This website stays online independently, but John needs that connection to check stock.</p>
+        <p>Reservations are recorded in John CRM. The original POS database is read-only. The company sender and manager must be different WhatsApp accounts.</p>
+        <p>If no chat button appears, reload the page and check whether your browser is blocking scripts from app.johncrm.com.</p>
+      </details>
+      <noscript><p class="live-note">Enable JavaScript to load the live chat widget.</p></noscript>
+      <footer>
+        <span>Duck Fashion · Test workspace</span>
+        <nav aria-label="Workspace links">
+          <a href="https://app.johncrm.com/g/automations" target="_blank" rel="noopener noreferrer">Open John CRM ↗</a>
+          <a href="https://github.com/JOHN-CRM-LTD/duck-fashion-chat" target="_blank" rel="noopener noreferrer">Site repository ↗</a>
+        </nav>
+      </footer>
+    </main>
+    <!-- Public widget identifier, intended for website embeds. It is not an API credential. -->
+    <script src="https://app.johncrm.com/widget/chat.js" data-site-key="wc_461cb606455258099352b5df" async></script>
+  </body>
+</html>
