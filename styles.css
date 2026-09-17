@@ -122,17 +122,11 @@ figure { overflow: hidden; }
 }
 
 .brand {
-  color: var(--black);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  text-decoration: none;
 }
-.brand:hover { color: var(--burgundy); }
-.brand-dot { width: 6px; height: 6px; background: var(--burgundy); display: inline-block; }
+.brand-logo { display: block; height: 38px; width: auto; }
 
 .site-nav { display: flex; gap: clamp(22px, 3vw, 40px); }
 
@@ -201,7 +195,6 @@ figure { overflow: hidden; }
 .hero-title .serif {
   font-family: var(--serif);
   font-weight: 500;
-  font-style: italic;
   text-transform: none;
   letter-spacing: -0.01em;
   color: var(--burgundy);
@@ -444,7 +437,7 @@ figure { overflow: hidden; }
 }
 .story-title .serif {
   font-weight: 500;
-  font-style: italic;
+  font-style: normal;
   text-transform: none;
   letter-spacing: -0.01em;
   color: var(--burgundy);
@@ -470,7 +463,6 @@ figure { overflow: hidden; }
 }
 .newsletter-title {
   font-family: var(--serif);
-  font-style: italic;
   font-weight: 500;
   font-size: clamp(44px, 6vw, 92px);
   line-height: 1;
@@ -542,7 +534,7 @@ figure { overflow: hidden; }
   line-height: 1.02;
   text-transform: uppercase;
 }
-.test-title .serif { font-weight: 500; font-style: italic; text-transform: none; letter-spacing: -0.01em; }
+.test-title .serif { font-weight: 500; font-style: normal; text-transform: none; letter-spacing: -0.01em; }
 
 .test-intro { margin-top: 26px; max-width: 560px; font-size: 16px; color: var(--ink-60); }
 .test-note { margin-top: 14px; max-width: 560px; font-size: 13px; color: var(--ink-45); }
@@ -575,7 +567,6 @@ figure { overflow: hidden; }
   padding: 26px 30px;
   margin: 0 0 24px;
   font-family: var(--serif);
-  font-style: italic;
   font-size: 21px;
   line-height: 1.45;
   overflow-wrap: anywhere;
@@ -744,6 +735,10 @@ figure { overflow: hidden; }
   .story-text { position: static; }
 }
 
+@media (max-width: 760px) {
+  .footer-word { white-space: normal; line-height: 0.9; }
+}
+
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }
   .product:nth-child(even) { margin-top: 0; }
@@ -752,6 +747,9 @@ figure { overflow: hidden; }
   .newsletter-form input { border-right: 1px solid var(--hairline); }
   .test-commands > div { grid-template-columns: 1fr; gap: 4px; }
   .footer-row { flex-direction: column; align-items: flex-start; }
+  .hero-title { font-size: clamp(46px, 13vw, 64px); }
+  .section-head { flex-wrap: wrap; }
+  .section-title { font-size: clamp(34px, 10vw, 44px); }
 }
 
 /* ============================================================

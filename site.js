@@ -12,8 +12,8 @@ const views = {
   test: $("#view-test"),
 };
 const titles = {
-  home: "DUCK FASHION — Autumn/Winter 2026",
-  test: "DUCK FASHION — Customer chat test",
+  home: "DUCK FASHION Autumn/Winter 2026",
+  test: "DUCK FASHION Customer chat test",
 };
 
 function currentView() {
@@ -126,7 +126,7 @@ function showToast(message) {
 $$("[data-add]").forEach((btn) => {
   const original = btn.textContent;
   btn.addEventListener("click", () => {
-    showToast(`Added — ${btn.dataset.add}`);
+    showToast(`Added: ${btn.dataset.add}`);
     btn.textContent = "Added";
     btn.classList.add("added");
     setTimeout(() => {
