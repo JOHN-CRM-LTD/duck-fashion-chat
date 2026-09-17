@@ -262,7 +262,6 @@ figure { overflow: hidden; }
   width: max-content;
   animation: marquee 30s linear infinite;
 }
-.marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-set { display: flex; align-items: center; gap: 44px; padding-right: 44px; }
 .marquee-set span {
   font-size: 11px;
@@ -433,7 +432,7 @@ figure { overflow: hidden; }
   font-weight: 700;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.2;
 }
 .story-title .serif {
   font-weight: 500;
