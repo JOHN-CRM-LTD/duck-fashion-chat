@@ -2,13 +2,15 @@
 
 Standalone static website for testing the existing live Duck Fashion customer chat and reservation automation in John CRM.
 
-**Website:** https://john-crm-ltd.github.io/duck-fashion-chat/
+**Website:** https://duck.johncrm.com/
 
 **Organization:** JOHN-CRM-LTD
 
 ## Publish updates
 
 GitHub Pages publishes the root of `main` automatically. Edit `index.html`, `styles.css` or `site.js`, commit and push. No build, application server, package installation or deployment secrets are needed. `.nojekyll` keeps the files unchanged.
+
+Keep the root `CNAME` file containing `duck.johncrm.com` in future deployments. GitHub Pages has this custom domain configured with HTTPS enforced; its DNS CNAME points to `john-crm-ltd.github.io`.
 
 The repository and site are public. Keep customer records, phone numbers, database files, tunnel credentials and API tokens out of this repository. The `wc_...` value in the widget embed is a public site identifier intended for browser use, not a secret. Update it only if Duck Fashion's widget key is rotated in John CRM.
 
@@ -42,6 +44,6 @@ Open http://127.0.0.1:4999/ . Use HTTPS on the published site so the clipboard b
 ## Maintenance
 
 - Update the sample SKU, shop and hours when the test inventory changes.
-- If Duck Fashion restricts allowed widget origins, include `https://john-crm-ltd.github.io` in the workspace's External Chat settings. Preserve other approved origins.
+- If Duck Fashion restricts allowed widget origins, include `https://duck.johncrm.com` in the workspace's External Chat settings. Preserve other approved origins.
 - The page deliberately has no stock API credentials, database connection or direct manager messaging logic. Those remain managed by the existing workspace.
 - Page-level smoke checks should cover desktop/mobile layout, copy feedback, the help disclosure and widget opening without sending messages.
