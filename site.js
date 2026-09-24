@@ -46,6 +46,38 @@ $$("[data-scroll]").forEach((a) => {
 });
 
 /* ============================================================
+   Marquee — the -50% keyframe loop is seamless only while one
+   half is at least as wide as the viewport, so repeat each half
+   until it covers it
+   ============================================================ */
+const marqueeTrack = $(".marquee-track");
+if (marqueeTrack) {
+  const sets = $$(".marquee-set", marqueeTrack);
+  const originals = sets.map((set) => set.innerHTML);
+  const fillMarquee = () => {
+    const vw = document.documentElement.clientWidth;
+    let filledWidth = 0;
+    sets.forEach((set, i) => {
+      set.innerHTML = originals[i];
+      const base = set.getBoundingClientRect().width;
+      if (!base) return; // marquee view hidden — retried on hashchange
+      const reps = Math.ceil(vw / base);
+      for (let r = 1; r < reps; r++) set.innerHTML += originals[i];
+      filledWidth = base * reps;
+    });
+    if (filledWidth) marqueeTrack.style.animationDuration = `${Math.round(filledWidth / 42)}s`; // ≈41px/s, the original 30s pass
+  };
+  fillMarquee();
+  if (document.fonts) document.fonts.ready.then(fillMarquee);
+  window.addEventListener("hashchange", fillMarquee);
+  let marqueeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(marqueeTimer);
+    marqueeTimer = setTimeout(fillMarquee, 150);
+  });
+}
+
+/* ============================================================
    Header — hairline after scroll, hide on scroll down
    ============================================================ */
 const header = $("#siteHeader");
