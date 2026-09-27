@@ -30,6 +30,8 @@ Replace the files in `images/` (keep the `look-0N.jpg` names, 4:5 portrait, ~140
 
 Both views embed `https://app.johncrm.com/widget/chat.js`. Customer messages go directly to the existing live Duck Fashion workspace. Hosting this page does not copy or replace the CRM, Knowledge Base or inventory database.
 
+The page's Content Security Policy must keep `media-src 'self' blob: https://app.johncrm.com`: `blob:` permits local voice recording previews, and the CRM origin permits playback of sent voice messages. Allowing the widget under `script-src` and `connect-src` alone does not allow audio playback. Keep the existing restrictions for scripts, objects, and forms.
+
 The Knowledge Base inventory integration still reads the local stock bridge through its HTTPS tunnel. Keep the inventory PC, Docker, bridge and tunnel running. A restarted temporary tunnel may require updating and retesting the existing KB integration's base URL. The web page's URL is independent of that tunnel.
 
 Inventory is the imported 16 September 2026 snapshot. John CRM stores the reservation ledger; the original POS database remains read-only. The storefront is a visual front; the Test page is the testing companion, not a production retail checkout.
